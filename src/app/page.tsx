@@ -7,7 +7,7 @@ import { GiPaperBagOpen } from "react-icons/gi";
 import { PiPackageFill } from "react-icons/pi";
 import { TbPaperBag } from "react-icons/tb";
 
-import boxImage from "@/img/Custom-Made.jpeg";
+import boxImage from "@/img/download.jpeg";
 import Image from "next/image";
 
 export default function Home() {
@@ -150,13 +150,31 @@ export default function Home() {
         <section className="about mt-[80px] xl:mt[200px] relative z-20">
           <div className="container mx-auto xl:px-0">
             <div className="flex flex-col xl:flex-row text-center xl:text-left justify-between items-center gap-8 xl:gap-[74px]">
-              <div className="bg-pink-200 flex-1">text</div>
-              <div className="max-w-[453px]">
+              <div className="flex-1 order-2 xl:order-none flex flex-col item-center xl:item-start">
+                <h2 className="h2">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Nihil, nesciunt?
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Excepturi voluptates reiciendis odio, asperiores aut similique
+                  eligendi dolores nobis, fugit quo inventore enim minima
+                  consequatur doloribus molestias architecto a laudantium
+                  dignissimos.
+                </p>
+              </div>
+              <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-none xl:mx-0">
                 <Image
                   src={boxImage.src}
                   alt="image"
-                  width={200}
-                  height={200}
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "400px",
+                    borderRadius: "26px 0 26px 0",
+                  }}
+                  unoptimized
                 />
               </div>
             </div>
