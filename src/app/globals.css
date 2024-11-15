@@ -45,6 +45,10 @@ h6 {
   @apply text-[50px] leading-tight;
 }
 
+.h3 {
+  @apply text-[25px];
+}
+
 .btn {
   @apply h-[75px] px-[30px] transition-all duration-300 text-white rounded-[18px] flex items-center gap-2;
 }
@@ -55,4 +59,29 @@ h6 {
 
 .btn-accent {
   @apply bg-accent hover:bg-accent-hover;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.custom-swiper-pagination {
+  position: relative;
+  top: 10px;
+  /* Adjust this value to control distance from Swiper */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* Adjust for desired spacing */
+}
+
+.default-carousel .swiper-pagination-bullet {
+  background: #000;
+  /* Customize bullet color */
+  opacity: 1;
+}
+
+.default-carousel .swiper-pagination-bullet-active {
+  background: text-accent;
+  /* Customize active bullet color */
 }

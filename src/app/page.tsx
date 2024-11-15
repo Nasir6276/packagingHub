@@ -6,9 +6,17 @@ import { useState } from "react";
 import { GiPaperBagOpen } from "react-icons/gi";
 import { PiPackageFill } from "react-icons/pi";
 import { TbPaperBag } from "react-icons/tb";
+import { FaPhoneFlip } from "react-icons/fa6";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
-import boxImage from "@/img/download.jpeg";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import boxImage from "@/img/tote.jpg";
 import Image from "next/image";
+import avatar from "@/img/round-avatar.jpg";
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -16,6 +24,7 @@ export default function Home() {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
   return (
     <div>
       {/* header */}
@@ -35,7 +44,7 @@ export default function Home() {
             </div>
             <ul
               className={`fixed w-full ${
-                isNavOpen ? "h-0 p-0" : "h-[350px] p-6"
+                isNavOpen ? "h-[350px] p-6" : "h-0 p-0"
               } bg-white overflow-hidden border-t top-[90px] left-0 right-0 flex flex-col gap-4 lg:relative lg:flex-row lg:p-0 lg:top-0 lg:border-none lg:h-full transition-all duration-300`}
             >
               <li>
@@ -147,14 +156,11 @@ export default function Home() {
         </section>
 
         {/* about */}
-        <section className="about mt-[80px] xl:mt[200px] relative z-20">
+        <section className="about mt-[80px] xl:mt-[200px] relative z-20">
           <div className="container mx-auto xl:px-0">
             <div className="flex flex-col xl:flex-row text-center xl:text-left justify-between items-center gap-8 xl:gap-[74px]">
-              <div className="flex-1 order-2 xl:order-none flex flex-col item-center xl:item-start">
-                <h2 className="h2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nihil, nesciunt?
-                </h2>
+              <div className="flex-1 order-2 xl:order-none flex flex-col justify-center item-center xl:item-start gap-8">
+                <h2 className="h2">Lorem ipsum dolor sit amet consectetur.</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                   Excepturi voluptates reiciendis odio, asperiores aut similique
@@ -162,6 +168,24 @@ export default function Home() {
                   consequatur doloribus molestias architecto a laudantium
                   dignissimos.
                 </p>
+
+                {/* phone */}
+                <div className="flex items-center justify-center xl:justify-start gap-4">
+                  <div className="bg-accent/15 w-[93px] h-[93px] rounded-full flex justify-center items-center">
+                    <FaPhoneFlip className="text-accent text-4xl" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-2xl font-bold">0812 345 6789</div>
+                    <div>Call Us Anytime</div>
+                  </div>
+                </div>
+                {/* btn */}
+                <div className="flex items-center justify-center xl:justify-start">
+                  <button className="btn btn-primary">
+                    Get fre estimation
+                    <IoMdArrowRoundForward className="text-accent" />
+                  </button>
+                </div>
               </div>
               <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-none xl:mx-0">
                 <Image
@@ -176,6 +200,130 @@ export default function Home() {
                   }}
                   unoptimized
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* testimonial */}
+        <section className="testimonial mt-[80px] xl:mt-[200px] relative z-20">
+          <div className="testimonial__bg container mx-auto bg-accent-secondary rounded-[70px] px-6">
+            <div className="flex flex-col items-center pt-[88px] pb-[110px]">
+              <h2 className="testimonial__title h2 mb-9 text-accent">
+                What Clients Say About Us
+              </h2>
+              {/* slider */}
+              <div className="w-full">
+                <div className="testimonial__slider swiper h-[400px]">
+                  <Swiper
+                    modules={[Navigation, Pagination]}
+                    loop={true}
+                    pagination={{
+                      clickable: true,
+                      el: ".custom-swiper-pagination",
+                    }}
+                    // navigation={true}
+                    className="default-carousel"
+                    slidesPerView={3}
+                    spaceBetween={20}
+                    breakpoints={{
+                      320: { slidesPerView: 1 },
+                      960: { slidesPerView: 2 },
+                      1200: { slidesPerView: 3 },
+                    }}
+                  >
+                    {/* slide 1 */}
+                    <SwiperSlide className="swiper-slider">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                        <div className="flex gap-4 mb-4">
+                          <Image
+                            alt="avatar"
+                            height={65}
+                            width={65}
+                            className="rounded-full"
+                            src={avatar.src}
+                          />
+                          <div>
+                            <h3 className="h3">Ismail Nasiru</h3>
+                            <div>Jos, Nigeria</div>
+                          </div>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Adipisci fugiat repellendus sed iure.
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                    {/* slide 2 */}
+                    <SwiperSlide className="swiper-slider">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                        <div className="flex gap-4 mb-4">
+                          <Image
+                            alt="avatar"
+                            height={65}
+                            width={65}
+                            className="rounded-full"
+                            src={avatar.src}
+                          />
+                          <div>
+                            <h3 className="h3">Ismail Nasiru</h3>
+                            <div>Jos, Nigeria</div>
+                          </div>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Adipisci fugiat repellendus sed iure.
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                    {/* slide 3 */}
+                    <SwiperSlide className="swiper-slider">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                        <div className="flex gap-4 mb-4">
+                          <Image
+                            alt="avatar"
+                            height={65}
+                            width={65}
+                            className="rounded-full"
+                            src={avatar.src}
+                          />
+                          <div>
+                            <h3 className="h3">Ismail Nasiru</h3>
+                            <div>Jos, Nigeria</div>
+                          </div>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Adipisci fugiat repellendus sed iure.
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                    {/* slide 4 */}
+                    <SwiperSlide className="swiper-slider">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                        <div className="flex gap-4 mb-4">
+                          <Image
+                            alt="avatar"
+                            height={65}
+                            width={65}
+                            className="rounded-full"
+                            src={avatar.src}
+                          />
+                          <div>
+                            <h3 className="h3">Ismail Nasiru</h3>
+                            <div>Jos, Nigeria</div>
+                          </div>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Adipisci fugiat repellendus sed iure.
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+                  {/* Custom Pagination */}
+                  <div className="custom-swiper-pagination"></div>
+                </div>
               </div>
             </div>
           </div>
