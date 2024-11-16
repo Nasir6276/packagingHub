@@ -17,6 +17,8 @@ import "swiper/css/pagination";
 import boxImage from "@/img/tote.jpg";
 import Image from "next/image";
 import avatar from "@/img/round-avatar.jpg";
+import brandLogo2 from "@/img/vista2.png";
+import orange from "@/img/orange.jpg";
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -323,6 +325,87 @@ export default function Home() {
                   </Swiper>
                   {/* Custom Pagination */}
                   <div className="custom-swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* brand */}
+        <section className="brand mt-[80px] xl:mt-[150px] relative z-20">
+          <div className="container mx-auto">
+            <div className="flex flex-col xl:flex-row justify-between items-center gap-12">
+              <Image
+                alt="brand Image"
+                src={brandLogo2.src}
+                height={70}
+                width={200}
+                unoptimized
+                className="brand__img"
+              />
+              <Image
+                alt="brand Image"
+                src={brandLogo2.src}
+                height={70}
+                width={200}
+                unoptimized
+                className="brand__img"
+              />
+              <Image
+                alt="brand Image"
+                src={brandLogo2.src}
+                height={70}
+                width={200}
+                unoptimized
+                className="brand__img"
+              />
+              <Image
+                alt="brand Image"
+                src={brandLogo2.src}
+                height={70}
+                width={200}
+                unoptimized
+                className="brand__img"
+              />
+              <Image
+                alt="brand Image"
+                src={brandLogo2.src}
+                height={70}
+                width={200}
+                unoptimized
+                className="brand__img"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* work */}
+        <section className="work mt-[80px] xl:mt-[150px] relative z-20">
+          <div className="container mx-auto">
+            {/* grid */}
+            <div className="work__grid">
+              <div className="w-full max-w-[540px] h-full mx-auto">
+                <Image
+                  src={orange.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "26px 0 26px 0",
+                  }}
+                  unoptimized
+                  className="mb-6"
+                />
+                <div className="flex justify-between items-center w-full">
+                  <div>
+                    <h3 className="h3">Modern Bags</h3>
+                    <p>Bags/Packaging</p>
+                  </div>
+                  <button className="bg-accent-secondary w-[70px] h-[70px] rounded-full flex items-center justify-center">
+                    <IoMdArrowRoundForward className="text-3xl text-primary" />
+                  </button>
                 </div>
               </div>
             </div>
