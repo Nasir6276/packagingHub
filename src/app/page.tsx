@@ -14,11 +14,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import boxImage from "@/img/tote.jpg";
+import toteBag from "@/img/tote.jpg";
 import Image from "next/image";
 import avatar from "@/img/round-avatar.jpg";
 import brandLogo2 from "@/img/vista2.png";
 import orange from "@/img/orange.jpg";
+import white from "@/img/white.jpg";
+import brown from "@/img/brown.jpg";
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -191,7 +193,7 @@ export default function Home() {
               </div>
               <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-none xl:mx-0">
                 <Image
-                  src={boxImage.src}
+                  src={toteBag.src}
                   alt="image"
                   width={0}
                   height={0}
@@ -381,9 +383,21 @@ export default function Home() {
 
         {/* work */}
         <section className="work mt-[80px] xl:mt-[150px] relative z-20">
-          <div className="container mx-auto">
+          <div className="container mx-auto xl:px-0">
+            {/* text */}
+            <div className="text-center mb-24">
+              <h2 className="work__title h2 mb-4">Follow Our Project</h2>
+              <p className="work__subtitle max-w-3xl mx-auto">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatibus, ducimus possimus earum laudantium accusantium
+                ipsum deleniti, laborum veniam commodi placeat adipisci
+                exercitationem?
+              </p>
+            </div>
+
             {/* grid */}
-            <div className="work__grid">
+            <div className="work__grid grid grid-cols-1 xl:grid-cols-2 gap-x-[104px] gap-y-[56px]">
+              {/* item */}
               <div className="w-full max-w-[540px] h-full mx-auto">
                 <Image
                   src={orange.src}
@@ -392,7 +406,79 @@ export default function Home() {
                   height={0}
                   style={{
                     width: "100%",
-                    height: "100%",
+                    height: "auto",
+                    borderRadius: "26px 0 26px 0",
+                  }}
+                  unoptimized
+                  className="mb-6"
+                />
+                <div className="flex justify-between items-center w-full">
+                  <div>
+                    <h3 className="h3">Paper Bags</h3>
+                    <p>Bags/Packaging</p>
+                  </div>
+                  <button className="bg-accent-secondary w-[70px] h-[70px] rounded-full flex items-center justify-center">
+                    <IoMdArrowRoundForward className="text-3xl text-primary" />
+                  </button>
+                </div>
+              </div>
+              <div className="w-full max-w-[540px] h-full mx-auto">
+                <Image
+                  src={white.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "26px 0 26px 0",
+                  }}
+                  unoptimized
+                  className="mb-6"
+                />
+                <div className="flex justify-between items-center w-full">
+                  <div>
+                    <h3 className="h3">Packaging Boxes</h3>
+                    <p>Bags/Packaging</p>
+                  </div>
+                  <button className="bg-accent-secondary w-[70px] h-[70px] rounded-full flex items-center justify-center">
+                    <IoMdArrowRoundForward className="text-3xl text-primary" />
+                  </button>
+                </div>
+              </div>
+              <div className="w-full max-w-[540px] h-full mx-auto">
+                <Image
+                  src={brown.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "26px 0 26px 0",
+                  }}
+                  unoptimized
+                  className="mb-6"
+                />
+                <div className="flex justify-between items-center w-full">
+                  <div>
+                    <h3 className="h3">Packaging Sachets</h3>
+                    <p>Bags/Packaging</p>
+                  </div>
+                  <button className="bg-accent-secondary w-[70px] h-[70px] rounded-full flex items-center justify-center">
+                    <IoMdArrowRoundForward className="text-3xl text-primary" />
+                  </button>
+                </div>
+              </div>
+              <div className="w-full max-w-[540px] h-full mx-auto">
+                <Image
+                  src={toteBag.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "auto",
                     borderRadius: "26px 0 26px 0",
                   }}
                   unoptimized
