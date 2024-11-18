@@ -9,6 +9,10 @@ import { TbPaperBag } from "react-icons/tb";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -502,7 +506,7 @@ export default function Home() {
         <section className="stats mt-[80px] xl:mt-[150px] relative z-20 bg-accent-secondary py-[80px] xl:py-[150px]">
           <div className="container mx-auto">
             {/* grid */}
-            <div className="grid grid-cols-1 xl:grid-cols-4">
+            <div className="grid grid-cols-1 xl:grid-cols-4 gap-4">
               {/* grid item */}
               <div className="stats__item text-center xl:border-r xl:border-accent">
                 <h3 className="h1 font-primary text-accent">12</h3>
@@ -633,6 +637,118 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* contact */}
+        <section className="contact mt-[80px] xl:mt-[150px] relative z-20">
+          <div className="contact__container container mx-auto bg-primary md:rounded-[70px] py-[80px]">
+            <div className="contact__text max-w-[640px] mx-auto text-center">
+              <h2 className="h2 text-white mb-4">
+                Do you want to join Packaging Hub?
+              </h2>
+              <p className="text-white mb-8 max-w-sm xl:max-w-none mx-auto">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <button className="btn btn-accent mx-auto">
+                Connect with us{" "}
+                <IoMdArrowRoundForward className="text-primary" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* footer */}
+        <footer className="footer mt-[80px] xl:mt-[150px] relative z-20">
+          <div className="container mx-auto px-0">
+            <div className="flex flex-col xl:flex-row xl:gap-[100px] xl:mb-[100px]">
+              <div className="footer__item w-full max-w-[400px] mx-auto mb-8 text-center xl:text-left gap-12 xl:gap-[100px] xl:justify-end">
+                <h3 className="h3 cursor-pointer">
+                  Packaging<span className="text-accent">Hub</span>
+                </h3>
+                <p className="mb-8 text-xl">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur laudantium corporis nisi autem.
+                </p>
+                {/* socials */}
+                <ul className="text-primary flex gap-[54px] justify-center xl:justify-start">
+                  <li>
+                    <a href="">
+                      <FaFacebookF />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <FaInstagram />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <FaLinkedinIn />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <FaXTwitter />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="flex-1 flex flex-col xl:flex-row text-center xl:text-left gap-12 xl:gap-[100px] xl:justify-end">
+                <div className="footer__item">
+                  <h3 className="h3 mb-3">Pages</h3>
+                  <ul className="flex flex-col gap-4">
+                    <li>
+                      <a href="">About us</a>
+                    </li>
+                    <li>
+                      <a href="">Testimonial</a>
+                    </li>
+                    <li>
+                      <a href="">Our Work</a>
+                    </li>
+                    <li>
+                      <a href="">News</a>
+                    </li>
+                    <li>
+                      <a href="">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="footer__item">
+                  <h3 className="h3 mb-3">Services</h3>
+                  <ul className="flex flex-col gap-4">
+                    <li>
+                      <a href="">Paper Bag</a>
+                    </li>
+                    <li>
+                      <a href="">Packaging Boxes</a>
+                    </li>
+                    <li>
+                      <a href="">Branding</a>
+                    </li>
+                    <li>
+                      <a href="">Printing</a>
+                    </li>
+                    <li>
+                      <a href="">Merchendice</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="footer__item max-w-[260px] mx-auto xl:mx-0">
+                  <h3 className="h3 mb-3">Contact</h3>
+                  <div className="flex flex-col gap-6 text-[20px]">
+                    <p>{"13 Naples St. Atlanta, New york(NY), 14808"}</p>
+                    <p>packaginghub@gmail.com</p>
+                    <p>{"(234) 812 345 6789"}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* copyright */}
+          <p className="footer__copyright text-center text-lg py-10 bg-white xl:border-t">
+            Copyright &copy; Packaging Hub 2024. All right reserved.
+          </p>
+        </footer>
 
         {/* temp div */}
         <div className="h-[3000px]"></div>
