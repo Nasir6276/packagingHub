@@ -498,6 +498,142 @@ export default function Home() {
           </div>
         </section>
 
+        {/* stats */}
+        <section className="stats mt-[80px] xl:mt-[150px] relative z-20 bg-accent-secondary py-[80px] xl:py-[150px]">
+          <div className="container mx-auto">
+            {/* grid */}
+            <div className="grid grid-cols-1 xl:grid-cols-4">
+              {/* grid item */}
+              <div className="stats__item text-center xl:border-r xl:border-accent">
+                <h3 className="h1 font-primary text-accent">12</h3>
+                <p>Years Of Experience</p>
+              </div>
+              {/* grid item */}
+              <div className="stats__item text-center xl:border-r xl:border-accent">
+                <h3 className="h1 font-primary text-accent">25</h3>
+                <p>Project Completed</p>
+              </div>
+              {/* grid item */}
+              <div className="stats__item text-center xl:border-r xl:border-accent">
+                <h3 className="h1 font-primary text-accent">13</h3>
+                <p>Active Project</p>
+              </div>
+              {/* grid item */}
+              <div className="stats__item text-center">
+                <h3 className="h1 font-primary text-accent">33</h3>
+                <p>Happy Customers</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* news */}
+        <section className="news mt-[80px] xl:mt-[150px] relative z-20">
+          <div className="container mx-auto px-0">
+            {/* text */}
+            <div className="max-w-[810px] mx-auto text-center mb-[52px]">
+              <h2 className="news__title h2 mb-3">Articles & News</h2>
+              <p className="news__subtitle">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Voluptatibus beatae earum debitis eius numquam omnis deleniti
+                voluptate adipisci.
+              </p>
+            </div>
+            <div className="news__grid grid grid-cols-1 xl:grid-cols-3 gap-[27px]">
+              {/* grid item */}
+              <div
+                className="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] 
+              hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0"
+              >
+                <Image
+                  src={toteBag.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "60%",
+                    borderRadius: "42px 42px 0px 0px",
+                  }}
+                  className="mb-5"
+                  unoptimized
+                />
+                <div className="flex flex-col gap-[30px]">
+                  <h3 className="h3">
+                    Get Solution For Making Packages Fit in
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <p className="text-base">22 June,2024</p>
+                    <button className="bg-accent-secondary w-[52px] h-[52px] rounded-full flex items-center justify-center group-hover:bg-white transition-all">
+                      <IoMdArrowRoundForward className="text-3xl text-primary" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {/* grid item */}
+              <div
+                className="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] 
+              hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0"
+              >
+                <Image
+                  src={white.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "60%",
+                    borderRadius: "42px 42px 0px 0px",
+                  }}
+                  className="mb-5"
+                  unoptimized
+                />
+                <div className="flex flex-col gap-[30px]">
+                  <h3 className="h3">
+                    Get Solution For Making Packages Fit in
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <p className="text-base">22 June,2024</p>
+                    <button className="bg-accent-secondary w-[52px] h-[52px] rounded-full flex items-center justify-center group-hover:bg-white transition-all">
+                      <IoMdArrowRoundForward className="text-3xl text-primary" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {/* grid item */}
+              <div
+                className="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] 
+              hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0"
+              >
+                <Image
+                  src={orange.src}
+                  alt="image"
+                  width={0}
+                  height={0}
+                  style={{
+                    width: "100%",
+                    height: "60%",
+                    borderRadius: "42px 42px 0px 0px",
+                  }}
+                  className="mb-5"
+                  unoptimized
+                />
+                <div className="flex flex-col gap-[30px]">
+                  <h3 className="h3">
+                    Get Solution For Making Packages Fit in
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <p className="text-base">22 June,2024</p>
+                    <button className="bg-accent-secondary w-[52px] h-[52px] rounded-full flex items-center justify-center group-hover:bg-white transition-all">
+                      <IoMdArrowRoundForward className="text-3xl text-primary" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* temp div */}
         <div className="h-[3000px]"></div>
       </main>
