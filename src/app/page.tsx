@@ -14,6 +14,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { motion } from "motion/react";
+import { IoClose } from "react-icons/io5";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -84,7 +85,12 @@ export default function Home() {
               id="nav_trigger_btn"
               onClick={toggleNav}
             >
-              <CgMenuRight className="text-4xl text-primary" />
+              {isNavOpen ? (
+                <IoClose className="text-4xl text-primary transition-all duration-300" />
+              ) : (
+                <CgMenuRight className="text-4xl text-primary transition-all duration-300" />
+              )}
+              {/* <CgMenuRight className="text-4xl text-primary" /> */}
             </div>
             <ul
               className={`fixed w-full ${
