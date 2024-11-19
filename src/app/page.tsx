@@ -13,6 +13,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
+import { motion } from "motion/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -31,6 +32,41 @@ export default function Home() {
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 60 }, // Start hidden and offset downwards
+    visible: {
+      opacity: 1,
+      y: 0, // Reset to original position
+      // transition: {
+      //   delay: 0.6
+      // },
+    },
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -60 }, // Start hidden and offset to the left
+    visible: {
+      opacity: 1,
+      x: 0, // Move to original position
+      transition: {
+        duration: 2, // Animation duration in seconds
+        delay: 0.6,
+      },
+    },
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 60 }, // Start hidden and offset to the right
+    visible: {
+      opacity: 1,
+      x: 0, // Move to original position
+      transition: {
+        duration: 2, // Animation duration in seconds
+        delay: 0.6,
+      },
+    },
   };
 
   return (
@@ -86,9 +122,22 @@ export default function Home() {
         {/* hero */}
         <section className="hero h-[640px] xl:h-[840px] bg-[url('../img/pexels.jpg')] bg-center md:bg-cover bg-no-repeat bg-fixed relative z-20">
           <div className="container mx-auto h-full flex items-center justify-center xl:justify-start">
-            <div className="hero__text w-[567px] flex flex-col items-center text-center xl:text-left lg:items-start rounded-xl bg-slate-50 p-4">
+            <motion.div
+              className="hero__text w-[567px] flex flex-col items-center text-center xl:text-left lg:items-start rounded-xl bg-slate-50 p-4"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                // scale: 1.25,
+                transition: { duration: 3, delay: 0.6 },
+              }}
+              viewport={{
+                once: true,
+                amount: 0.1,
+              }}
+            >
               <h1 className="h1 mb-8">Let Your Packages Be Unique</h1>
-              <p className="mb-8">
+              <p className="mb-8 p-4 xl:p-0">
                 There are many variation of the passage of lorem ipsum form
                 available, variation of the passages.
               </p>
@@ -96,7 +145,7 @@ export default function Home() {
                 Get free estimate
                 <IoMdArrowRoundForward className="text-accent" />
               </button>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -104,9 +153,16 @@ export default function Home() {
         <section className="steps mt-[80px] xl:mt-[200px] relative z-20">
           <div className="container mx-auto">
             {/* grid items */}
-            <div className="grid grid-cols-1 gap-12 xl:grid-cols-3">
+            <motion.div className="grid grid-cols-1 gap-12 xl:grid-cols-3">
               {/* step 1 */}
-              <div className="steps__step text-center flex flex-col items-center justify-center">
+              <motion.div
+                className="steps__step text-center flex flex-col items-center justify-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.2, duration: 1 }} // No delay for the first div
+              >
                 <div className="mb-4">
                   <GiPaperBagOpen className="text-5xl text-accent" />
                 </div>
@@ -122,9 +178,16 @@ export default function Home() {
                   Read more
                   <IoMdArrowRoundForward className="text-accent" />
                 </a>
-              </div>
+              </motion.div>
               {/* step 2 */}
-              <div className="steps__step text-center flex flex-col items-center justify-center">
+              <motion.div
+                className="steps__step text-center flex flex-col items-center justify-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.4, duration: 1.5 }} // No delay for the first div
+              >
                 <div className="mb-4">
                   <PiPackageFill className="text-5xl text-accent" />
                 </div>
@@ -140,9 +203,16 @@ export default function Home() {
                   Read more
                   <IoMdArrowRoundForward className="text-accent" />
                 </a>
-              </div>
+              </motion.div>
               {/* step 3 */}
-              <div className="steps__step text-center flex flex-col items-center justify-center">
+              <motion.div
+                className="steps__step text-center flex flex-col items-center justify-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.6, duration: 2 }} // No delay for the first div
+              >
                 <div className="mb-4">
                   <TbPaperBag className="text-5xl text-accent" />
                 </div>
@@ -158,8 +228,8 @@ export default function Home() {
                   Read more
                   <IoMdArrowRoundForward className="text-accent" />
                 </a>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
@@ -167,7 +237,13 @@ export default function Home() {
         <section className="about mt-[80px] xl:mt-[200px] relative z-20">
           <div className="container mx-auto xl:px-0">
             <div className="flex flex-col xl:flex-row text-center xl:text-left justify-between items-center gap-8 xl:gap-[74px]">
-              <div className="flex-1 order-2 xl:order-none flex flex-col justify-center item-center xl:item-start gap-8">
+              <motion.div
+                className="about__text flex-1 order-2 xl:order-none flex flex-col justify-center item-center xl:item-start gap-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInLeft}
+              >
                 <h2 className="h2">Lorem ipsum dolor sit amet consectetur.</h2>
                 <p>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -194,8 +270,14 @@ export default function Home() {
                     <IoMdArrowRoundForward className="text-accent" />
                   </button>
                 </div>
-              </div>
-              <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-none xl:mx-0">
+              </motion.div>
+              <motion.div
+                className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-none xl:mx-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInRight}
+              >
                 <Image
                   src={toteBag.src}
                   alt="image"
@@ -208,21 +290,60 @@ export default function Home() {
                   }}
                   unoptimized
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* testimonial */}
         <section className="testimonial mt-[80px] xl:mt-[200px] relative z-20">
-          <div className="testimonial__bg container mx-auto bg-accent-secondary rounded-[70px] px-6">
+          <motion.div
+            className="testimonial__bg container mx-auto bg-accent-secondary rounded-[70px] px-6"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              // scale: 1.25,
+              transition: { duration: 0.6, delay: 0.4 },
+            }}
+            viewport={{
+              once: true,
+              amount: 0.1,
+            }}
+          >
             <div className="flex flex-col items-center pt-[88px] pb-[110px]">
-              <h2 className="testimonial__title h2 mb-9 text-accent">
+              <motion.h2
+                className="testimonial__title h2 mb-9 text-accent"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  // scale: 1.25,
+                  transition: { duration: 0.8, delay: 0.6 },
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.1,
+                }}
+              >
                 What Clients Say About Us
-              </h2>
+              </motion.h2>
               {/* slider */}
               <div className="w-full">
-                <div className="testimonial__slider swiper h-[400px]">
+                <motion.div
+                  className="testimonial__slider swiper h-[400px]"
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    // scale: 1.25,
+                    transition: { duration: 1, delay: 0.8 },
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.1,
+                  }}
+                >
                   <Swiper
                     modules={[Navigation, Pagination]}
                     loop={true}
@@ -331,56 +452,96 @@ export default function Home() {
                   </Swiper>
                   {/* Custom Pagination */}
                   <div className="custom-swiper-pagination"></div>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* brand */}
         <section className="brand mt-[80px] xl:mt-[150px] relative z-20">
           <div className="container mx-auto">
             <div className="flex flex-col xl:flex-row justify-between items-center gap-12">
-              <Image
-                alt="brand Image"
-                src={brandLogo2.src}
-                height={70}
-                width={200}
-                unoptimized
-                className="brand__img"
-              />
-              <Image
-                alt="brand Image"
-                src={brandLogo2.src}
-                height={70}
-                width={200}
-                unoptimized
-                className="brand__img"
-              />
-              <Image
-                alt="brand Image"
-                src={brandLogo2.src}
-                height={70}
-                width={200}
-                unoptimized
-                className="brand__img"
-              />
-              <Image
-                alt="brand Image"
-                src={brandLogo2.src}
-                height={70}
-                width={200}
-                unoptimized
-                className="brand__img"
-              />
-              <Image
-                alt="brand Image"
-                src={brandLogo2.src}
-                height={70}
-                width={200}
-                unoptimized
-                className="brand__img"
-              />
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.2, duration: 0.6 }} // No delay for the first div
+              >
+                <Image
+                  alt="brand Image"
+                  src={brandLogo2.src}
+                  height={70}
+                  width={200}
+                  unoptimized
+                  className="brand__img"
+                />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.4, duration: 0.8 }} // No delay for the first div
+              >
+                <Image
+                  alt="brand Image"
+                  src={brandLogo2.src}
+                  height={70}
+                  width={200}
+                  unoptimized
+                  className="brand__img"
+                />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.6, duration: 1 }} // No delay for the first div
+              >
+                <Image
+                  alt="brand Image"
+                  src={brandLogo2.src}
+                  height={70}
+                  width={200}
+                  unoptimized
+                  className="brand__img"
+                />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.8, duration: 1.2 }} // No delay for the first div
+              >
+                <Image
+                  alt="brand Image"
+                  src={brandLogo2.src}
+                  height={70}
+                  width={200}
+                  unoptimized
+                  className="brand__img"
+                />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 1, duration: 1.4 }} // No delay for the first div
+              >
+                <Image
+                  alt="brand Image"
+                  src={brandLogo2.src}
+                  height={70}
+                  width={200}
+                  unoptimized
+                  className="brand__img"
+                />
+              </motion.div>
             </div>
           </div>
         </section>
@@ -390,17 +551,58 @@ export default function Home() {
           <div className="container mx-auto xl:px-0">
             {/* text */}
             <div className="text-center mb-24">
-              <h2 className="work__title h2 mb-4">Follow Our Project</h2>
-              <p className="work__subtitle max-w-3xl mx-auto">
+              <motion.h2
+                className="work__title h2 mb-4"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  // scale: 1.25,
+                  transition: { duration: 0.4, delay: 0.6 },
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.1,
+                }}
+              >
+                Follow Our Project
+              </motion.h2>
+              <motion.p
+                className="work__subtitle max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  // scale: 1.25,
+                  transition: { duration: 0.6, delay: 0.8 },
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.1,
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptatibus, ducimus possimus earum laudantium accusantium
                 ipsum deleniti, laborum veniam commodi placeat adipisci
                 exercitationem?
-              </p>
+              </motion.p>
             </div>
 
             {/* grid */}
-            <div className="work__grid grid grid-cols-1 xl:grid-cols-2 gap-x-[104px] gap-y-[56px]">
+            <motion.div
+              className="work__grid grid grid-cols-1 xl:grid-cols-2 gap-x-[104px] gap-y-[56px]"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                // scale: 1.25,
+                transition: { duration: 0.8, delay: 1 },
+              }}
+              viewport={{
+                once: true,
+                amount: 0.1,
+              }}
+            >
               {/* item */}
               <div className="w-full max-w-[540px] h-full mx-auto">
                 <Image
@@ -498,7 +700,7 @@ export default function Home() {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -508,25 +710,53 @@ export default function Home() {
             {/* grid */}
             <div className="grid grid-cols-1 xl:grid-cols-4 gap-4">
               {/* grid item */}
-              <div className="stats__item text-center xl:border-r xl:border-accent">
+              <motion.div
+                className="stats__item text-center xl:border-r xl:border-accent"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
                 <h3 className="h1 font-primary text-accent">12</h3>
                 <p>Years Of Experience</p>
-              </div>
+              </motion.div>
               {/* grid item */}
-              <div className="stats__item text-center xl:border-r xl:border-accent">
+              <motion.div
+                className="stats__item text-center xl:border-r xl:border-accent"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.4, duration: 0.8 }} // No delay for the first div
+              >
                 <h3 className="h1 font-primary text-accent">25</h3>
                 <p>Project Completed</p>
-              </div>
+              </motion.div>
               {/* grid item */}
-              <div className="stats__item text-center xl:border-r xl:border-accent">
+              <motion.div
+                className="stats__item text-center xl:border-r xl:border-accent"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.6, duration: 1 }} // No delay for the first div
+              >
                 <h3 className="h1 font-primary text-accent">13</h3>
                 <p>Active Project</p>
-              </div>
+              </motion.div>
               {/* grid item */}
-              <div className="stats__item text-center">
+              <motion.div
+                className="stats__item text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.8, duration: 1.2 }} // No delay for the first div
+              >
                 <h3 className="h1 font-primary text-accent">33</h3>
                 <p>Happy Customers</p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -536,18 +766,51 @@ export default function Home() {
           <div className="container mx-auto px-0">
             {/* text */}
             <div className="max-w-[810px] mx-auto text-center mb-[52px]">
-              <h2 className="news__title h2 mb-3">Articles & News</h2>
-              <p className="news__subtitle">
+              <motion.h2
+                className="news__title h2 mb-3"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  // scale: 1.25,
+                  transition: { duration: 1, delay: 0.6 },
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.1,
+                }}
+              >
+                Articles & News
+              </motion.h2>
+              <motion.p
+                className="news__subtitle"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  // scale: 1.25,
+                  transition: { duration: 1.2, delay: 0.8 },
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.1,
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Voluptatibus beatae earum debitis eius numquam omnis deleniti
                 voluptate adipisci.
-              </p>
+              </motion.p>
             </div>
             <div className="news__grid grid grid-cols-1 xl:grid-cols-3 gap-[27px]">
               {/* grid item */}
-              <div
+              <motion.div
                 className="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] 
               hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.2, duration: 0.6 }} // No delay for the first div
               >
                 <Image
                   src={toteBag.src}
@@ -573,11 +836,16 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
               {/* grid item */}
-              <div
+              <motion.div
                 className="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] 
               hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.4, duration: 0.8 }} // No delay for the first div
               >
                 <Image
                   src={white.src}
@@ -603,11 +871,16 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
               {/* grid item */}
-              <div
+              <motion.div
                 className="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] 
               hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.6, duration: 1 }} // No delay for the first div
               >
                 <Image
                   src={orange.src}
@@ -633,14 +906,27 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* contact */}
         <section className="contact mt-[80px] xl:mt-[150px] relative z-20">
-          <div className="contact__container container mx-auto bg-primary md:rounded-[70px] py-[80px]">
+          <motion.div
+            className="contact__container container mx-auto bg-primary md:rounded-[70px] py-[80px]"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              // scale: 1.25,
+              transition: { duration: 0.8, delay: 0.6 },
+            }}
+            viewport={{
+              once: true,
+              amount: 0.1,
+            }}
+          >
             <div className="contact__text max-w-[640px] mx-auto text-center">
               <h2 className="h2 text-white mb-4">
                 Do you want to join Packaging Hub?
@@ -653,14 +939,21 @@ export default function Home() {
                 <IoMdArrowRoundForward className="text-primary" />
               </button>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* footer */}
         <footer className="footer mt-[80px] xl:mt-[150px] relative z-20">
           <div className="container mx-auto px-0">
             <div className="flex flex-col xl:flex-row xl:gap-[100px] xl:mb-[100px]">
-              <div className="footer__item w-full max-w-[400px] mx-auto mb-8 text-center xl:text-left gap-12 xl:gap-[100px] xl:justify-end">
+              <motion.div
+                className="footer__item w-full max-w-[400px] mx-auto mb-8 text-center xl:text-left gap-12 xl:gap-[100px] xl:justify-end"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} // Trigger once when in view
+                variants={itemVariants}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
                 <h3 className="h3 cursor-pointer">
                   Packaging<span className="text-accent">Hub</span>
                 </h3>
@@ -691,9 +984,16 @@ export default function Home() {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
               <div className="flex-1 flex flex-col xl:flex-row text-center xl:text-left gap-12 xl:gap-[100px] xl:justify-end">
-                <div className="footer__item">
+                <motion.div
+                  className="footer__item"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }} // Trigger once when in view
+                  variants={itemVariants}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                >
                   <h3 className="h3 mb-3">Pages</h3>
                   <ul className="flex flex-col gap-4">
                     <li>
@@ -712,8 +1012,15 @@ export default function Home() {
                       <a href="">Contact</a>
                     </li>
                   </ul>
-                </div>
-                <div className="footer__item">
+                </motion.div>
+                <motion.div
+                  className="footer__item"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }} // Trigger once when in view
+                  variants={itemVariants}
+                  transition={{ delay: 0.6, duration: 1 }}
+                >
                   <h3 className="h3 mb-3">Services</h3>
                   <ul className="flex flex-col gap-4">
                     <li>
@@ -732,26 +1039,46 @@ export default function Home() {
                       <a href="">Merchendice</a>
                     </li>
                   </ul>
-                </div>
-                <div className="footer__item max-w-[260px] mx-auto xl:mx-0">
+                </motion.div>
+                <motion.div
+                  className="footer__item max-w-[260px] mx-auto xl:mx-0"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }} // Trigger once when in view
+                  variants={itemVariants}
+                  transition={{ delay: 0.8, duration: 1.2 }}
+                >
                   <h3 className="h3 mb-3">Contact</h3>
                   <div className="flex flex-col gap-6 text-[20px]">
                     <p>{"13 Naples St. Atlanta, New york(NY), 14808"}</p>
                     <p>packaginghub@gmail.com</p>
                     <p>{"(234) 812 345 6789"}</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
           {/* copyright */}
-          <p className="footer__copyright text-center text-lg py-10 bg-white xl:border-t">
+          <motion.p
+            className="footer__copyright text-center text-lg py-10 bg-white xl:border-t"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              // scale: 1.25,
+              transition: { duration: 1, delay: 1 },
+            }}
+            viewport={{
+              once: true,
+              amount: 0.1,
+            }}
+          >
             Copyright &copy; Packaging Hub 2024. All right reserved.
-          </p>
+          </motion.p>
         </footer>
 
         {/* temp div */}
-        <div className="h-[3000px]"></div>
+        {/* <div className="h-[3000px]"></div> */}
       </main>
     </div>
   );
