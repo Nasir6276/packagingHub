@@ -298,7 +298,7 @@ export default function Home() {
         {/* testimonial */}
         <section className="testimonial mt-[80px] xl:mt-[200px] relative z-20">
           <motion.div
-            className="testimonial__bg container mx-auto bg-accent-secondary rounded-[70px] px-6"
+            className="testimonial__bg container mx-auto bg-accent-secondary md:rounded-[70px] px-6"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{
               opacity: 1,
@@ -363,7 +363,7 @@ export default function Home() {
                   >
                     {/* slide 1 */}
                     <SwiperSlide className="swiper-slider">
-                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-6 mx-auto ">
                         <div className="flex gap-4 mb-4">
                           <Image
                             alt="avatar"
@@ -385,7 +385,7 @@ export default function Home() {
                     </SwiperSlide>
                     {/* slide 2 */}
                     <SwiperSlide className="swiper-slider">
-                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-6 mx-auto ">
                         <div className="flex gap-4 mb-4">
                           <Image
                             alt="avatar"
@@ -407,7 +407,7 @@ export default function Home() {
                     </SwiperSlide>
                     {/* slide 3 */}
                     <SwiperSlide className="swiper-slider">
-                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-6 mx-auto ">
                         <div className="flex gap-4 mb-4">
                           <Image
                             alt="avatar"
@@ -429,7 +429,7 @@ export default function Home() {
                     </SwiperSlide>
                     {/* slide 4 */}
                     <SwiperSlide className="swiper-slider">
-                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto ">
+                      <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-6 mx-auto ">
                         <div className="flex gap-4 mb-4">
                           <Image
                             alt="avatar"
@@ -763,7 +763,7 @@ export default function Home() {
 
         {/* news */}
         <section className="news mt-[80px] xl:mt-[150px] relative z-20">
-          <div className="container mx-auto px-0">
+          <div className="container mx-auto px-2 xl:px-0">
             {/* text */}
             <div className="max-w-[810px] mx-auto text-center mb-[52px]">
               <motion.h2
