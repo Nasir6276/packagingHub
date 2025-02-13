@@ -20,10 +20,6 @@ module.exports = {
       lg: '960px',
       xl: '1200px',
     },
-    backgroundImage: {
-      hero: 'url(/src/img/pexels.jpg)',
-      grid: 'url(/src/img/Custom-Made.jpeg)',
-    },
     extend: {
       colors: {
         primary: {
